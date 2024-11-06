@@ -1,4 +1,17 @@
-<div>
+<!-- Ako je offline onda ce da se doda klasa status, posto je u nasem slucaju (u .ts fajlu) online onda nece biti dodata -->
+<!-- <div [class.status]="currentStatus==='offline'"> -->
+
+<!-- ovo radimo ukoliko imamo vise klasa za jedan element  -->
+<!-- ukoliko imamo neki naziv sa - izmedju to se resava tako sto ga stavimo izmedju ' ' -->
+<!-- status klasa treba da bude uvek dodata, a ostale pod odredjenim uslovom  -->
+<div
+  [class]="{
+    status: true,
+    'status-online': currentStatus === 'online',
+    'status-offline': currentStatus === 'offline',
+    'status-unknown': currentStatus === 'unknown'
+  }"
+>
   @if (currentStatus === 'online') {
   <p>Servers are online</p>
   <p>All systems are operational.</p>
